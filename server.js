@@ -32,14 +32,16 @@ app.use(express.static(path.join(__dirname, '.')));
 
 // Setup Multer for memory storage (for disease image upload)
 const upload = multer({ limits: { fileSize: 10 * 1024 * 1024 } }); // 10MB size limit
-
-
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI )
-  .then(() => console.log('Connected to MongoDB successfully.'))
-  .catch(err => {
-    console.error('MongoDB connection error. Please make sure MongoDB is running:', err);
-  });
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error.message);
+    process.exit(1);
+  }
+};
 
 // Redirect root to welcome page
 app.get('/', (req, res) => {
@@ -82,7 +84,7 @@ app.post('/api/auth/register', async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('Registration error:', error);
+   console.error('Registration error:', error.message, error);
     res.status(500).json({ error: 'Server error during registration' });
   }
 });
@@ -242,7 +244,12 @@ app.get('/api/history/:userId', async (req, res) => {
   }
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Smart Crop Advisor backend server running at http://localhost:${PORT}`);
-});
+const startServer = async () => {
+  await connectDB(); // 👈 MongoDB connects first
+
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+};
+
+startServer();
