@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Smart Crop Advisor</title>
+    <style>
+        .dashboard-container {
+            background-color: var(--bg-main);
+        }
+        .weather-widget {
+            background: linear-gradient(135deg, #c8e6c9, #e8f5e9);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 0.5rem 0;
+        }
+       #recommendationResult {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    line-height: 1.8;
+    color: #374151;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#recommendationResult h3,
+#recommendationResult h4 {
+    color: #15803d;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#recommendationResult strong {
+    color: #166534;
+}
+        .history-box {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            margin-top: 1.8rem;
+        }
+    </style>
+</head>
+<body class="dashboard-container">
+
+    <main class="main-content">
+        <h2 class="mb-4 text-center fw-bold text-success animate-float">🌾 Smart Crop Advisor Dashboard</h2>
+        
+        <div class="row g-4">
+            <!-- LEFT COLUMN: Weather & Settings -->
+            <div class="col-lg-4 col-md-5">
+                
+                <!-- Weather Widget -->
+                <div class="weather-widget mb-4">
+                    <h5 class="fw-bold mb-1"><i class="bi bi-cloud-sun me-2 text-success"></i>Current Weather</h5>
+                    <div class="weather-temp" id="currentTemp">28°C</div>
+                    <p class="mb-2 fw-bold text-secondary" id="weatherCondition">Partly Cloudy</p>
+                    <div class="d-flex gap-3 text-muted small">
+                        <span><i class="bi bi-droplet"></i> Humidity: 65%</span>
+                        <span><i class="bi bi-wind"></i> Wind: 12 km/h</span>
+                    </div>
+                </div>
+
+                <!-- Recommendation Form -->
+                <div class="card border-0 shadow-sm">
+                    <h5 class="fw-bold text-success mb-3"><i class="bi bi-sliders me-2"></i>Advisor Settings</h5>
+                    <form id="recommendationForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Crop Type</label>
+                            <select class="form-select" id="cropType" required>
+                                <option value="">Select Crop</option>
+                                <option>Wheat</option>
+                                <option>Rice</option>
+                                <option>Corn</option>
+                                <option>Soybean</option>
+                                <option>Cotton</option>
+                                <option>Tomato</option>
+                                <option>Potato</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Soil Type</label>
+                            <select class="form-select" id="soilType" required>
+                                <option value="">Select Soil</option>
+                                <option>Clay</option>
+                                <option>Sandy</option>
+                                <option>Loamy</option>
+                                <option>Silty</option>
+                                <option>Peaty</option>
+                                <option>Chalky</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Season</label>
+                            <select class="form-select" id="season" required>
+                                <option value="">Select Season</option>
+                                <option>Spring</option>
+                                <option>Summer</option>
+                                <option>Autumn</option>
+                                <option>Winter</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 fw-bold py-2 mt-2 rounded-pill">
+                            <i class="bi bi-robot me-1"></i> Get AI Recommendations
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: AI Results & History -->
+            <!-- RIGHT COLUMN: AI Results & History -->
+<div class="col-lg-8 col-md-7">
+
+    <!-- AI Recommendations Box -->
+    <div class="card border-0 shadow-sm mb-4">
+
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                <h5 class="fw-bold text-success m-0">
+                    <i class="bi bi-lightbulb me-2"></i>
+                    AI Farming Guidance
+                </h5>
+
+                <div>
+                    <button class="btn btn-outline-success btn-sm me-2">
+                        <i class="bi bi-clipboard"></i> Copy
+                    </button>
+
+                    <button class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-download"></i> Download
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="recommendationResult">
+
+                <div class="text-center text-muted py-5">
+                    <i class="bi bi-info-circle display-4 mb-3 d-block text-success opacity-50"></i>
+
+                    Select your crop, soil type and season to generate AI recommendations.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="history-box shadow-sm">
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">
+                        <i class="bi bi-clock-history me-2"></i>Your Recent AI Activity Logs
+                    </h5>
+                    <div id="historyLogs">
+                        <div class="text-center text-muted py-3">
+                            <div class="spinner-border spinner-border-sm text-success" role="status"></div>
+                            <span class="ms-2">Loading search history...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features Cards (Subpages Quick Navigation) -->
+        <div class="py-5">
+            <h3 class="text-center fw-bold mb-4" style="color: var(--primary-dark);">Explore Dedicated Guides</h3>
+            <div class="row g-4">
+                
+                <!-- Feature 1: Soil -->
+                <div class="col-md-4">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4">
+                        <div class="display-4 text-success mb-3"><i class="bi bi-droplet-fill"></i></div>
+                        <h5 class="fw-bold card-title">Soil Moisture Techniques</h5>
+                        <p class="text-muted small mb-4">Master water conservation using smart modern sprinklers, subsurface drips, and organic mulch layers.</p>
+                        <a href="soil.html" class="btn btn-secondary btn-sm mt-auto rounded-pill fw-bold">
+                            View Soil Techniques
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Crop Rotation -->
+                <div class="col-md-4">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4">
+                        <div class="display-4 text-success mb-3"><i class="bi bi-arrow-repeat"></i></div>
+                        <h5 class="fw-bold card-title">Crop Rotation with Legumes</h5>
+                        <p class="text-muted small mb-4">Improve fertility levels naturally and break pest cycles by alternating main grains with pulse legumes.</p>
+                        <a href="crop_rotation.html" class="btn btn-secondary btn-sm mt-auto rounded-pill fw-bold">
+                            View Rotation Cycles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Crop Planner -->
+                <div class="col-md-4">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4">
+                        <div class="display-4 text-success mb-3"><i class="bi bi-calendar-range"></i></div>
+                        <h5 class="fw-bold card-title">Seasonal Planting Schedule</h5>
+                        <p class="text-muted small mb-4">Generate localized, detailed sowing-to-harvest spacing and irrigation guides tailored by region.</p>
+                        <a href="seasonschedule.html" class="btn btn-secondary btn-sm mt-auto rounded-pill fw-bold">
+                            Open Crop Planner
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification panel container -->
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Dynamic Layout Injector Script -->
+    <script src="nav-footer.js"></script>
+    <!-- Custom Page Script -->
+    <script src="semproject.js"></script>
+</body>
+</html>

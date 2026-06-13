@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Rotation with Legumes | Smart Crop Advisor</title>
+<style>
+  .rotation-container {
+      background-color: var(--bg-main);
+  }
+  .table-responsive {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+  }
+  th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+      color: white !important;
+  }
+  .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+      background: white;
+  }
+  .accordion-header {
+      padding: 1rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .accordion-content {
+      padding: 1rem;
+      border-top: 1px solid var(--border-color);
+      display: none;
+      font-size: 0.95rem;
+      color: #555;
+  }
+</style>
+</head>
+<body class="rotation-container">
+
+<main class="main-content">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      
+      <!-- WHY SECTION -->
+      <div class="card border-0 shadow-sm mb-4">
+        <h2 class="fw-bold text-success mb-3">🌱 Crop Rotation with Legumes (फसल चक्र)</h2>
+        <p class="text-muted">Crop rotation is the agricultural practice of growing different crops in sequence on the same land to maintain soil quality. Including <strong>legumes (दलहनी फसलें)</strong> like moong, gram, peas, or groundnut fixes atmospheric nitrogen in the soil naturally, saving fertilization costs.</p>
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-6 col-lg-3">
+            <div class="p-3 rounded-4 h-100 text-center" style="background-color: var(--primary-light);">
+              <span class="display-6 mb-2 d-block">💧</span>
+              <h6 class="fw-bold text-success">Moisture Retention</h6>
+              <p class="small text-muted mb-0">Improves soil organic structure and water-holding properties.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-3 rounded-4 h-100 text-center" style="background-color: var(--primary-light);">
+              <span class="display-6 mb-2 d-block">🌿</span>
+              <h6 class="fw-bold text-success">Nitrogen Fixation</h6>
+              <p class="small text-muted mb-0">Roots host Rhizobium bacteria that naturally accumulate nitrogen.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-3 rounded-4 h-100 text-center" style="background-color: var(--primary-light);">
+              <span class="display-6 mb-2 d-block">🐛</span>
+              <h6 class="fw-bold text-success">Pest Disruption</h6>
+              <p class="small text-muted mb-0">Breaks life cycles of insect pests and soil diseases.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-3 rounded-4 h-100 text-center" style="background-color: var(--primary-light);">
+              <span class="display-6 mb-2 d-block">💰</span>
+              <h6 class="fw-bold text-success">Cost Reduction</h6>
+              <p class="small text-muted mb-0">Lowers synthetic chemical input budgets by up to 50%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEASONAL TABLE -->
+      <div class="card border-0 shadow-sm mb-4">
+        <h3 class="fw-bold text-success mb-3"><i class="bi bi-calendar-event me-2"></i>Recommended Crop Cycles (India-Specific)</h3>
+        <p class="text-muted small">Standard cycles developed by regional agricultural extension boards.</p>
+        
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Kharif (June–Oct)</th>
+                <th>Rabi (Nov–March)</th>
+                <th>Zaid (Apr–May)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold">North India</td>
+                <td>Paddy / Maize</td>
+                <td>Wheat / Gram (Chana)</td>
+                <td>Moong / Vegetables</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">South India</td>
+                <td>Groundnut / Cotton</td>
+                <td>Ragi / Horse Gram</td>
+                <td>Green Gram (Moong)</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">East India</td>
+                <td>Paddy</td>
+                <td>Lentil / Pea</td>
+                <td>Sesame / Vegetables</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">West India</td>
+                <td>Soybean / Cotton</td>
+                <td>Wheat / Chickpea</td>
+                <td>Green Fodder / Moong</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- IMPLEMENTATION & CHECKLIST -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-6">
+          <div class="card h-100 border-0 shadow-sm">
+            <h4 class="fw-bold text-success mb-3"><i class="bi bi-list-ol me-2"></i>Actionable Sowing Steps</h4>
+            <ol class="text-muted small ps-3">
+              <li class="mb-3">Prepare a 2–3 year crop list based on local monsoon predictions.</li>
+              <li class="mb-3">Select region-compatible legumes (Moong, Chickpea, Pea).</li>
+              <li class="mb-3">Treat legume seeds with <strong>Rhizobium inoculum</strong> culture before sowing.</li>
+              <li class="mb-3">Leave root residues in soil after harvest to decay into bio-nitrogen.</li>
+              <li class="mb-3">Alternate dense root crops with shallow root grains to balance moisture.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card h-100 border-0 shadow-sm">
+            <h4 class="fw-bold text-success mb-3"><i class="bi bi-card-checklist me-2"></i>Field Checklist</h4>
+            <div class="form-check mb-2">
+              <input class="form-check-input text-success" type="checkbox" id="check1">
+              <label class="form-check-label text-muted small" for="check1">Cycle contains both deep-rooted and shallow-rooted crops.</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input text-success" type="checkbox" id="check2">
+              <label class="form-check-label text-muted small" for="check2">Seeds are treated with bio-fertilizers (Rhizobium/Azotobacter).</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input text-success" type="checkbox" id="check3">
+              <label class="form-check-label text-muted small" for="check3">Soil testing is completed between cycles.</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input text-success" type="checkbox" id="check4">
+              <label class="form-check-label text-muted small" for="check4">Monoculture planting has been completely avoided.</label>
+            </div>
+            <button class="btn btn-primary w-100 rounded-pill fw-bold" onclick="window.print()">
+              <i class="bi bi-printer me-1"></i> Print Guide for Field Use
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ ACCORDION -->
+      <div class="card border-0 shadow-sm">
+        <h3 class="fw-bold text-success mb-4"><i class="bi bi-question-circle me-2"></i>Frequently Asked Questions</h3>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>When will I observe soil structure improvements?</span>
+              <i class="bi bi-plus text-success"></i>
+            </div>
+            <div class="accordion-content">
+              Usually within 1–2 full harvest seasons. Farmers generally report improved water retention, softer texture, and noticeably greener shoots with lower urea inputs.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Which legumes grow best in low-water regions?</span>
+              <i class="bi bi-plus text-success"></i>
+            </div>
+            <div class="accordion-content">
+              Bengal Gram (Chana), Pigeon Pea (Arhar/Tur), and Cowpea (Lobia) are highly drought-tolerant, flourishing in drylands across Rajasthan, Madhya Pradesh, and interior Maharashtra.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Can I plant the same legume consecutive years?</span>
+              <i class="bi bi-plus text-success"></i>
+            </div>
+            <div class="accordion-content">
+              It is not recommended. Repeating the same legume family consecutively increases the buildup of specific soil-borne root pathogens. Switch to alternative pulse families or cereal rotations.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Do I completely stop adding urea/nitrogen?</span>
+              <i class="bi bi-plus text-success"></i>
+            </div>
+            <div class="accordion-content">
+              Not completely, but legume rotational plots require up to 60% less chemical nitrogen fertilization than monocropped cereal plots. Follow recommendations given by soil health cards.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Dynamic Layout Injector Script -->
+<script src="nav-footer.js"></script>
+<!-- Custom JS -->
+<script src="croproatation.js"></script>
+</body>
+</html>

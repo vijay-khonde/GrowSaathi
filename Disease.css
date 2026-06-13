@@ -1,0 +1,171 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+html, body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #dcedc8, #fffde7, #c8e6c9, #b2ebf2);
+  background-size: 300% 300%;
+  animation: bgMove 15s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align from top for better max-width */
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  transition: background 1s ease;
+  overflow-x: hidden; /* Avoid horizontal scroll */
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== HEADING ===== */
+h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2e7d32;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 6px rgba(46,125,50,0.25);
+  margin-bottom: 25px;
+  position: relative;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, #43a047, #81c784);
+  border-radius: 4px;
+}
+
+/* ===== FILE INPUT ===== */
+input[type="file"] {
+  display: block;
+  margin: 0 auto 25px;
+  padding: 15px;
+  border: 2px dashed #43a047;
+  border-radius: 14px;
+  background: #ffffffee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%; /* Full width */
+  max-width: 900px; /* Prevent extremely wide on large screens */
+  font-weight: 500;
+  color: #2e2e2e;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+input[type="file"]:hover {
+  background: #f1fff2;
+  border-color: #66bb6a;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(102, 187, 106, 0.2);
+}
+
+/* ===== BUTTON ===== */
+button {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 45px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(46,125,50,0.25);
+  width: 100%; /* Max width */
+  max-width: 400px; /* Optional: limit width on large screens */
+  margin-bottom: 20px;
+}
+
+button::after {
+  content: "🌱";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #66bb6a, #2e7d32);
+  box-shadow: 0 14px 35px rgba(46,125,50,0.35);
+}
+
+button:hover::after {
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+}
+
+/* ===== RESULT BOX ===== */
+#result {
+  margin-top: 30px;
+  text-align: left;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Max width for large screens */
+  background: #ffffff;
+  color: #1b5e20;
+  padding: 22px;
+  border-radius: 18px;
+  border: 2px solid #a5d6a7;
+  box-shadow: 0 6px 16px rgba(27,94,32,0.15);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+#result:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 22px rgba(27,94,32,0.18);
+}
+
+/* ===== RESPONSIVENESS ===== */
+@media (max-width: 900px) {
+  h2 { font-size: 1.8rem; }
+  button { width: 90%; padding: 12px 0; font-size: 0.95rem; }
+  input[type="file"] { width: 90%; font-size: 0.9rem; }
+  #result { font-size: 0.95rem; padding: 18px; }
+}
+
+@media (max-width: 600px) {
+  h2 { font-size: 1.6rem; }
+  button { width: 100%; padding: 12px 0; font-size: 0.9rem; }
+  input[type="file"] { width: 100%; font-size: 0.85rem; }
+  #result { font-size: 0.9rem; padding: 15px; }
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: linear-gradient(135deg, #004d40, #1b5e20, #263238);
+    color: #e8f5e9;
+  }
+  h2 { color: #81c784; }
+  input[type="file"] { background: #2e3b2f; color: #e8f5e9; border-color: #66bb6a; }
+  input[type="file"]:hover { background: #3b4a3f; }
+  button { background: linear-gradient(135deg, #81c784, #43a047); color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+  #result { background: #2e3b2f; color: #c8e6c9; border-color: #81c784; }
+}

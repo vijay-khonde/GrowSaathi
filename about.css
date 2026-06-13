@@ -1,0 +1,80 @@
+/* Basic page styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f7f2;
+    color: #333;
+}
+
+/* Main container */
+.about-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #1b5e20;
+    margin-top: 25px;
+}
+
+/* Paragraph text */
+p {
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+/* Highlight box */
+.info-box {
+    background-color: #e6f4ea;
+    padding: 12px;
+    border-left: 4px solid #2e7d32;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .about-container {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soil Moisture Techniques | Smart Crop Advisor</title>
+    <style>
+      .soil-container {
+          background-color: var(--bg-main);
+      }
+      .accordion-item {
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          margin-bottom: 0.8rem;
+          background: white;
+          overflow: hidden;
+      }
+      .accordion-header {
+          padding: 1.2rem;
+          font-weight: 600;
+          color: var(--primary-dark);
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: white;
+      }
+      .accordion-content {
+          padding: 1.5rem;
+          border-top: 1px solid var(--border-color);
+          display: none;
+          background-color: #fafafa;
+      }
+      .trick {
+          background-color: var(--primary-light);
+          color: var(--primary-dark);
+          padding: 0.8rem 1rem;
+          border-radius: 8px;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          border-left: 4px solid var(--primary);
+      }
+      .soil-list {
+          padding-left: 1.2rem;
+      }
+      .soil-list li {
+          margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="soil-container">
+    
+    <main class="main-content">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-11">
+          
+          <div class="card border-0 shadow-sm mb-4 text-center">
+            <h2 class="fw-bold text-success mb-2 justify-content-center">🌿 Soil Moisture Management Guides</h2>
+            <p class="text-muted max-width-600 mx-auto">Explore traditional, modern, and biological techniques to sustain high moisture content inside your agricultural plots and cut water waste.</p>
+          </div>
+
+          <div class="accordion" id="soilAccordion">
+            
+            <!-- Traditional Methods -->
+            <div class="accordion-item shadow-sm">
+              <div class="accordion-header">
+                <span><i class="bi bi-droplet-half text-success me-2"></i>1️⃣ Traditional Moisture Methods</span>
+                <i class="bi bi-plus text-success"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="soil-list text-muted">
+                  <li>
+                    <strong>Basin Irrigation:</strong> Watering individual plant clusters inside small, circular embanked basins.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Layer crop straw or dried grasses (mulch) into the basin to block sunlight and reduce evaporative loss.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Furrow Irrigation:</strong> Digging narrow, linear channels between crop beds to guide flowing water.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Maintain a slight slope (1–2%) to avoid water pooling at the end of rows.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Contour Bunding:</strong> Installing earthen walls along contour lines of hilly terrains to catch runoffs.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Plant cover crops or Vetiver grass on bund walls to reinforce them against soil erosion.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Modern Techniques -->
+            <div class="accordion-item shadow-sm">
+              <div class="accordion-header">
+                <span><i class="bi bi-gear-fill text-success me-2"></i>2️⃣ Modern Smart Techniques</span>
+                <i class="bi bi-plus text-success"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="soil-list text-muted">
+                  <li>
+                    <strong>Drip Irrigation:</strong> Applying water slowly and directly to the plant root zone via narrow tubing.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Flush the filters weekly to avoid clogging from silt and calcium deposits.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Sprinkler Irrigation:</strong> Dispersing water under high pressure, simulating uniform rain over fields.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Schedule sprinklers during early dawn to minimize mid-day evaporation losses.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Subsurface Drip:</strong> Burying emitter pipelines below the soil to feed roots directly and eliminate runoff.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Integrate with automated soil sensors to execute water feeding only when needed.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Moisture Monitoring -->
+            <div class="accordion-item shadow-sm">
+              <div class="accordion-header">
+                <span><i class="bi bi-cpu-fill text-success me-2"></i>3️⃣ Smart Moisture Monitoring</span>
+                <i class="bi bi-plus text-success"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="soil-list text-muted">
+                  <li>
+                    <strong>Soil Moisture Sensors:</strong> Probes inserted in the ground that measure electrical resistance to compute water levels.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Mount sensors at 10cm (root top) and 30cm (root base) to evaluate root zone saturation.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>IoT-Based Automation:</strong> Connecting sensor arrays with smart relays to control motor water pumps.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Configure motor shutoff values slightly below root saturation to conserve electricity.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Natural Techniques -->
+            <div class="accordion-item shadow-sm">
+              <div class="accordion-header">
+                <span><i class="bi bi-tree-fill text-success me-2"></i>4️⃣ Natural Moisture Retention Tricks</span>
+                <i class="bi bi-plus text-success"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="soil-list text-muted">
+                  <li>
+                    <strong>Mulching:</strong> Covering exposed soil with biomass (hay, leaves) or specialized sheets.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Decomposing organic mulch improves organic carbon index and feeds earthworms.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Composting:</strong> Mixing organic compost and bio-waste with farm soil.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> Biochar additions double water retention in sandy soils.
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Cover Crops:</strong> Growing ground-huggers (cowpeas, alfalfa) to shield the soil surface off-season.
+                    <div class="trick">
+                      <span class="emoji">💡</span><strong>Pro-Tip:</strong> They double as green manure when ploughed back into the field.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- DIY Tricks -->
+            <div class="accordion-item shadow-sm">
+              <div class="accordion-header">
+                <span><i class="bi bi-tools text-success me-2"></i>5️⃣ DIY Moisture-Saving Hacks</span>
+                <i class="bi bi-plus text-success"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="soil-list text-muted">
+                  <li>
+                    <strong>Olla Pot Irrigation:</strong> Burying unglazed clay pots up to the neck next to plants and filling them with water. The porous clay slowly releases moisture to adjacent root structures.
+                  </li>
+                  <li>
+                    <strong>Inverted Bottle Drip:</strong> Punching tiny holes in plastic bottle caps, cutting the base, and planting them upside down next to young saplings for cheap spot watering.
+                  </li>
+                  <li>
+                    <strong>Coconut Husk Placement:</strong> Planting coconut husks concave-side up inside tree planting pits to collect and preserve soil moisture.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Dynamic Layout Injector Script -->
+    <script src="nav-footer.js"></script>
+    <!-- Custom JS -->
+    <script src="soil.js"></script>
+  </body>
+</html>

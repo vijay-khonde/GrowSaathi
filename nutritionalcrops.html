@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crop Nutrition Library | Smart Crop Advisor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .crops-container {
+        background-color: var(--bg-main);
+    }
+    .crop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .crop-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid rgba(16, 185, 129, 0.15);
+        box-shadow: var(--shadow-sm);
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .crop-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
+    }
+    .crop-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+        transition: var(--transition);
+    }
+    .crop-card:hover .crop-icon {
+        transform: scale(1.1);
+        background-color: var(--primary);
+        color: white;
+    }
+    .modal {
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+        align-items: center;
+        justify-content: center;
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1060;
+    }
+    .modal-dialog {
+        max-width: 600px;
+        width: 100%;
+        margin: 1.5rem;
+    }
+    .modal-content {
+        background: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        position: relative;
+    }
+    .modal-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 1.5rem;
+    }
+    .modal-body {
+        padding: 2rem;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .detail-label {
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-top: 1rem;
+        display: block;
+    }
+</style>
+</head>
+<body class="crops-container">
+
+<main class="main-content">
+    <div class="card border-0 shadow-sm text-center py-4 mb-4">
+        <h2 class="fw-bold text-success mb-2 justify-content-center">🌾 Nutritional Profile & Domestic Crop Usage</h2>
+        <p class="text-muted max-width-600 mx-auto">Click any of the major crops below to view their nutritional values, cultivation seasons, and major producing states in India.</p>
+    </div>
+
+    <div class="crop-grid" id="cropList"></div>
+</main>
+
+<!-- Details Modal -->
+<div class="modal" id="cropModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between align-items-center">
+                <h4 class="modal-title fw-bold mb-0" id="modalName">Crop Details</h4>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <span class="detail-label"><i class="bi bi-heart-pulse me-1"></i>Diet & Daily Use:</span>
+                <p id="modalImportance" class="text-muted small" style="white-space: pre-wrap; line-height: 1.6;"></p>
+                
+                <span class="detail-label"><i class="bi bi-calendar-event me-1"></i>Growing Season:</span>
+                <p id="modalSeason" class="text-muted small"></p>
+                
+                <span class="detail-label"><i class="bi bi-geo-alt me-1"></i>Major Producing States:</span>
+                <p id="modalState" class="text-muted small"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const crops=[
+{
+ name:"Rice",
+ icon:"🍚",
+ importance:`Rice is one of the most important staple foods in India.
+It is rich in carbohydrates and provides instant energy.
+Rice is easy to digest and suitable for all age groups.
+It is used in daily meals such as rice, idli, dosa, and khichdi.
+Brown rice contains fiber and vitamins.
+Rice water improves digestion and gut health.
+It plays a role in religious rituals and festivals.
+Rice supports food security in India.
+It is gluten-free and safe for gluten intolerance.
+Rice forms the base of balanced diets.`,
+ season:"Kharif (June–October)",
+ state:"West Bengal, Assam, Uttar Pradesh"
+},
+{
+ name:"Wheat",
+ icon:"🌾",
+ importance:`Wheat is a major energy-providing crop.
+It contains carbohydrates, protein, and fiber.
+Wheat is used to make roti, chapati, and bread.
+Whole wheat supports digestion.
+It provides long-lasting energy.
+Wheat helps regulate blood sugar.
+It supports muscle growth.
+It contains essential minerals.
+Wheat is culturally important in North India.
+It is vital for food security.`,
+ season:"Rabi (October–March)",
+ state:"Punjab, Haryana, Uttar Pradesh"
+},
+{
+ name:"Maize",
+ icon:"🌽",
+ importance:`Maize is a nutritious cereal crop.
+It provides energy and dietary fiber.
+Maize improves digestion.
+It is consumed as corn, popcorn, and flour.
+Maize oil is used in cooking.
+It supports eye health.
+It is used as animal feed.
+Maize is affordable and versatile.
+It is used in food industries.
+It supports farmers’ income.`,
+ season:"Kharif and Rabi",
+ state:"Karnataka, Bihar, Maharashtra"
+},
+{
+ name:"Sugarcane",
+ icon:"🍬",
+ importance:`Sugarcane is the main source of sugar.
+It provides instant energy.
+Sugarcane juice prevents dehydration.
+It supports liver health.
+Jaggery improves iron levels.
+It aids digestion.
+Used in sweets and beverages.
+It supports rural employment.
+Important for agro-industries.
+Culturally important crop.`,
+ season:"Kharif",
+ state:"Uttar Pradesh, Maharashtra"
+},
+{
+ name:"Cotton",
+ icon:"🧵",
+ importance:`Cotton is an important non-food crop.
+It is used to make clothes.
+Cotton fabric is breathable.
+Cottonseed oil is edible.
+Supports textile industries.
+Provides employment.
+Used in medical supplies.
+Supports rural economy.
+Eco-friendly crop.
+Important in Indian culture.`,
+ season:"Kharif",
+ state:"Gujarat, Maharashtra, Telangana"
+}
+];
+
+const list=document.getElementById("cropList");
+crops.forEach((c,i)=>{
+ const div=document.createElement("div");
+ div.className="crop-card";
+ div.innerHTML=`
+   <div class="crop-icon">${c.icon}</div>
+   <h4 class="fw-bold text-success mb-2">${c.name}</h4>
+   <p class="text-muted small mb-0">Click to view details</p>`;
+ div.onclick=()=>openModal(i);
+ list.appendChild(div);
+});
+
+const modal=document.getElementById("cropModal");
+document.getElementById("closeModal").onclick=()=>modal.style.display="none";
+window.onclick=e=>{if(e.target==modal)modal.style.display="none";};
+
+function openModal(i){
+ const c=crops[i];
+ document.getElementById("modalName").innerText = `${c.icon} ${c.name} Details`;
+ document.getElementById("modalImportance").innerText=c.importance;
+ document.getElementById("modalSeason").innerText=c.season;
+ document.getElementById("modalState").innerText=c.state;
+ modal.style.display="flex";
+}
+</script>
+
+<!-- Shared Navigation Script -->
+<script src="nav-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Register | Smart Crop Advisor</title>
+  <style>
+    .auth-bg {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1)), 
+                    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+    .auth-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        max-width: 480px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(4, 120, 87, 0.15);
+    }
+    .auth-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 19px 19px 0 0;
+    }
+    .auth-body {
+        padding: 2.5rem;
+    }
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-bg">
+    <!-- Login Section -->
+    <div class="auth-card" id="loginSection">
+      <div class="auth-header">
+        <h4 class="mb-0 fw-bold"><i class="bi bi-shield-lock me-2"></i>Login to Your Account</h4>
+        <small class="opacity-75">Welcome back, farmer partner 👨‍🌾</small>
+      </div>
+      <div class="auth-body">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-key"></i></span>
+              <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+            </div>
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg fw-bold rounded-pill">
+              Login <i class="bi bi-box-arrow-in-right ms-1"></i>
+            </button>
+          </div>
+          <div class="text-center mt-4 mb-0">
+            <p class="mb-0 text-muted">Don't have an account? <a href="#" id="showRegister" class="text-success fw-bold">Register here</a></p>
+          </div>
+        </form>
+      </div>
+    </div> 
+
+    <!-- Registration Section -->
+    <div class="auth-card hidden" id="registerSection">
+      <div class="auth-header">
+        <h4 class="mb-0 fw-bold"><i class="bi bi-person-plus me-2"></i>Create Your Account</h4>
+        <small class="opacity-75">Join the network and improve your harvest</small>
+      </div>
+      <div class="auth-body">
+        <form id="registerForm">
+          <div class="mb-3">
+            <label for="fullName" class="form-label fw-bold">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" id="fullName" placeholder="Rahul Kumar" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label fw-bold">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="regEmail" placeholder="rahul@example.com" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label fw-bold">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-key"></i></span>
+              <input type="password" class="form-control" id="regPassword" placeholder="Minimum 6 characters" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="farmLocation" class="form-label fw-bold">Farm Location / City</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+              <input type="text" class="form-control" id="farmLocation" placeholder="Nashik, Maharashtra" required>
+            </div>
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg fw-bold rounded-pill">
+              Register Account <i class="bi bi-check-circle ms-1"></i>
+            </button>
+          </div>
+          <div class="text-center mt-4 mb-0">
+            <p class="mb-0 text-muted">Already have an account? <a href="#" id="showLogin" class="text-success fw-bold">Login here</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Navigation Script -->
+  <script src="nav-footer.js"></script>
+  <!-- Custom JS -->
+  <script src="Registration_page.js"></script>
+</body>
+</html>

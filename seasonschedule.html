@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Crop Planner | Smart Crop Advisor</title>
+<style>
+  .planner-container {
+      background-color: var(--bg-main);
+  }
+  .table-container {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+  }
+  th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+      color: white !important;
+  }
+  #scheduleCard {
+      display: none;
+  }
+</style>
+</head>
+<body class="planner-container">
+
+<main class="main-content">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      
+      <!-- Input Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <h2 class="fw-bold text-success mb-2"><i class="bi bi-calendar-range me-2"></i>Smart Crop Planner for Indian Farmers</h2>
+        <p class="text-muted mb-4">Select your region and crop season to retrieve standard agricultural cycles, recommended plant spacing, and fertilization quantities.</p>
+        
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="region" class="form-label fw-bold">Location / Region</label>
+            <select id="region" class="form-select">
+              <option value="">Select Region</option>
+              <option value="north">North India</option>
+              <option value="south">South India</option>
+              <option value="east">East India</option>
+              <option value="west">West India</option>
+            </select>
+          </div>
+          
+          <div class="col-md-6">
+            <label for="season" class="form-label fw-bold">Season</label>
+            <select id="season" class="form-select">
+              <option value="">Select Season</option>
+              <option value="kharif">Kharif (June - October)</option>
+              <option value="rabi">Rabi (November - March)</option>
+              <option value="zaid">Zaid (April - May)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button class="btn btn-primary rounded-pill px-5 fw-bold" onclick="generateSchedule()">
+            Generate Crop Plan <i class="bi bi-calculator ms-1"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Table Card -->
+      <div class="card border-0 shadow-sm" id="scheduleCard">
+        <h3 class="fw-bold text-success mb-3"><i class="bi bi-table me-2"></i>Detailed Crop Schedule & Rotation Plan</h3>
+        <div class="table-responsive table-container">
+          <table id="scheduleTable" class="table table-hover align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Crop</th>
+                <th>Variety</th>
+                <th>Sowing</th>
+                <th>Harvest</th>
+                <th>Spacing</th>
+                <th>Fertilizer</th>
+                <th>Irrigation</th>
+                <th>Rotation / Reminders</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- JS will fill schedule -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Shared Navigation Script -->
+<script src="nav-footer.js"></script>
+<!-- Custom JS -->
+<script src="seasonschedule.js"></script>
+</body>
+</html>
