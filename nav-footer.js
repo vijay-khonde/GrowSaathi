@@ -122,7 +122,7 @@ function injectNavbar() {
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid max-width-container" style="max-width: 1200px; margin: 0 auto; width: 100%;">
                 <a class="navbar-brand" href="${isLoggedIn ? 'semproject.html' : 'start.html'}">
-                    <i class="bi bi-flower1"></i> SMART CROP ADVISOR
+                    <i class="bi bi-flower1"></i> GrowSathi 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sharedNavbar" aria-controls="sharedNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -159,7 +159,7 @@ function injectFooter() {
     container.innerHTML = `
         <footer>
             <div class="container text-center">
-                <p class="mb-2">🌾 Smart Crop Advisor — Intelligent Agricultural Support System 🚜</p>
+                <p class="mb-2">🌾 GrowSathi — Intelligent Agricultural Support System 🚜</p>
                 <p class="mb-0" style="font-size: 0.8rem; opacity: 0.8;">&copy; 2026 Smart Crop Advisor | Developed with MongoDB, Express & Gemini AI for Indian Farmers</p>
             </div>
         </footer>
