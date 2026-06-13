@@ -35,7 +35,7 @@ const upload = multer({ limits: { fileSize: 10 * 1024 * 1024 } }); // 10MB size 
 
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/smart_crop_advisor')
+mongoose.connect(process.env.MONGODB_URI )
   .then(() => console.log('Connected to MongoDB successfully.'))
   .catch(err => {
     console.error('MongoDB connection error. Please make sure MongoDB is running:', err);
